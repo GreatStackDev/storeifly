@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+    --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+    font-family: var(--font-inter);
+    color: #171717;
+    background-color: #fafafa;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background-color: #d1fae5;
+    color: #064e3b;
+}
+
+/* Minimalist scrollbars */
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #059669;
+}
+
+@keyframes marqueeUp {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+@keyframes marqueeDown {
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.animate-col-up {
+    animation: marqueeUp 42s linear infinite;
+}
+.animate-col-down {
+    animation: marqueeDown 42s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+    .animate-col-up,
+    .animate-col-down {
+        animation: none;
+    }
+}
+
+/* Storefront Dynamic Accent Variables Default */
+:root {
+    --store-accent: #059669;
+    --store-accent-hover: #047857;
+    --store-accent-light: rgba(5, 150, 105, 0.08);
+    --store-accent-medium: rgba(5, 150, 105, 0.16);
+    --store-accent-border: rgba(5, 150, 105, 0.28);
+    --store-accent-ring: rgba(5, 150, 105, 0.25);
+    --store-accent-contrast: #ffffff;
+}
+
+.store-accent-bg {
+    background-color: var(--store-accent, #059669);
+    color: var(--store-accent-contrast, #ffffff);
+}
+
+.store-accent-btn {
+    background-color: var(--store-accent, #059669) !important;
+    color: var(--store-accent-contrast, #ffffff) !important;
+    transition: all 150ms ease;
+}
+
+.store-accent-btn:hover {
+    background-color: var(--store-accent-hover, #047857) !important;
+}
+
+.store-accent-text {
+    color: var(--store-accent, #059669);
+}
+
+.store-accent-text-hover:hover {
+    color: var(--store-accent, #059669) !important;
+}
+
+.store-accent-border {
+    border-color: var(--store-accent, #059669);
+}
+
+.store-accent-pill {
+    background-color: var(--store-accent-contrast, rgba(5, 150, 105, 0.08));
+    border-color: var(--store-accent-border, rgba(5, 150, 105, 0.28));
+    color: var(--store-accent, #059669);
+}
